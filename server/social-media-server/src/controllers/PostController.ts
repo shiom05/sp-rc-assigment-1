@@ -55,9 +55,9 @@ export const addComment = async (req: Request, res: Response) => {
   }
 
   try {
-  
-    const post = await Post.findById(postid);
-
+   console.log(postid);
+    const post = await Post.findOne({postId: postid});
+    console.log(post);
     if (!post) {
        res.status(404).json({ message: "Post not found" });
        return ;
